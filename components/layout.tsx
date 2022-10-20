@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 
 import Header from './header'
+import PartitionTest from './partitionTest'
 import Footer from './footer'
 
 interface LayoutProps {

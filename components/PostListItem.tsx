@@ -1,4 +1,4 @@
-import React from 'react'
+import { Partition } from '@potion/layout';
 import Link from 'next/link'
 
 interface PostListItemProps {

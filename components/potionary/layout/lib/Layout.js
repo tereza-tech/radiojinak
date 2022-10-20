@@ -25,8 +25,7 @@ var _itsSet2 = _interopRequireDefault(_itsSet);
 var _lodash = require('lodash.get');
 
 var _lodash2 = _interopRequireDefault(_lodash);
-
-var _util = require('@potion/util');
+var _util = require('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

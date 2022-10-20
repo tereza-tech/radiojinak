@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TransitionMotion, spring } from 'react-motion';
 import itsSet from 'its-set';
 import get from 'lodash.get';
-
-import { isObject, types } from '@potion/util';
+import { isObject, types } from '../../utils';
 
 export default class Layout extends Component {
 
@@ -113,21 +111,7 @@ export default class Layout extends Component {
     });
   }
 
-  renderAnimated() {
-    const data = this.getAnimatedData();
-    return (
-      <TransitionMotion
-        defaultStyles={this.transformDefaultStyles(data)}
-        styles={this.transformStyles(data)}
-        willEnter={this.getEnterStyle}
-        willLeave={this.getExitStyle}
-      >
-        {interpolatedStyles => this.renderChildren(
-          this.transformInterpolatedStyles(interpolatedStyles)
-        )}
-      </TransitionMotion>
-    );
-  }
+  
 
   renderStatic() {
     return this.renderChildren(this.getStaticData());
@@ -148,6 +132,6 @@ export default class Layout extends Component {
   }
 
   render() {
-    return this.props.animate ? this.renderAnimated() : this.renderStatic();
+    this.renderStatic();
   }
 }

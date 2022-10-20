@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "d3-hierarchy": "^1.1.9",
+    "d3-v4-grid": "^2.0.2",
     "depcheck": "^0.6.8",
     "intersect": "^1.0.1",
     "its-set": "^1.2.3",
@@ -22,6 +23,7 @@
     "react": "^18.2.0",
     "react-bricks": "^3.6.1",
     "react-bricks-ui": "^0.5.2",
+    "react-color-palette": "^6.2.0",
     "react-dom": "^18.2.0",
     "react-slick": "^0.29.0"
   },

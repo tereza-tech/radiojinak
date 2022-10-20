@@ -11,12 +11,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
-var _d3Hierarchy = require('d3-hierarchy');
+
 var _util = require('../../utils');
 
-var _Layout2 = require('./Layout');
+var _Element2 = require('./Element');
 
-var _Layout3 = _interopRequireDefault(_Layout2);
+var _Element3 = _interopRequireDefault(_Element2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26,59 +26,52 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Pack = function (_Layout) {
-  _inherits(Pack, _Layout);
+var Svg = function (_Element) {
+  _inherits(Svg, _Element);
 
-  function Pack() {
-    _classCallCheck(this, Pack);
+  function Svg() {
+    var _ref;
 
-    return _possibleConstructorReturn(this, (Pack.__proto__ || Object.getPrototypeOf(Pack)).apply(this, arguments));
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Svg);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Svg.__proto__ || Object.getPrototypeOf(Svg)).call.apply(_ref, [this].concat(args))), _this), _this.defaultComponent = 'svg', _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(Pack, [{
-    key: 'getSchema',
-    value: function getSchema() {
+  _createClass(Svg, [{
+    key: 'getChildContext',
+    value: function getChildContext() {
       return {
-        layout: _d3Hierarchy.partition,
-        layoutProps: ['round', 'size', 'separation'],
-        selectStylesToTween: function selectStylesToTween(d) {
-          return {
-            x0: d.x0,
-            y0: d.y0,
-            x1: d.x1,
-            y1: d.y1
-          };
-        }
+        components: _extends({}, _util.defaultProps.components, this.props.components),
+        env: this.props.env
       };
     }
   }, {
-    key: 'getData',
-    value: function getData() {
-      var _props = this.props,
-          data = _props.data,
-          sum = _props.sum,
-          includeRoot = _props.includeRoot;
-
-      return (0, _util.flattenHierarchy)(this.getLayout()((0, _d3Hierarchy.hierarchy)(data).sum(sum))).slice(includeRoot ? 0 : 1);
+    key: 'getPrivateProps',
+    value: function getPrivateProps() {
+      return ['components', 'env'];
     }
   }]);
 
-  return Pack;
-}(_Layout3.default);
+  return Svg;
+}(_Element3.default);
 
-Pack.displayName = 'Partition';
-Pack.propTypes = {
-  separation: _propTypes2.default.number,
-  size: _propTypes2.default.arrayOf(_propTypes2.default.number),
-  round: _propTypes2.default.number,
-  data: _propTypes2.default.object.isRequired,
-  includeRoot: _propTypes2.default.bool,
-  sum: _propTypes2.default.func
+Svg.displayName = 'Svg';
+Svg.propTypes = {
+  patterns: _propTypes2.default.array,
+  components: _util.types.components
 };
-Pack.defaultProps = _extends({}, _Layout3.default.defaultProps, {
-  includeRoot: true,
-  sum: function sum(d) {
-    return d.value;
-  }
+Svg.defaultProps = _extends({}, _Element3.default.defaultProps, {
+  components: {},
+  env: 'web'
 });
-exports.default = Pack;
+Svg.childContextTypes = {
+  components: _util.types.components,
+  env: _propTypes2.default.oneOf(['web', 'react-native-svg'])
+};
+exports.default = Svg;

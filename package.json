@@ -10,9 +10,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "d3-hierarchy": "^1.1.9",
+    "depcheck": "^0.6.8",
+    "intersect": "^1.0.1",
+    "its-set": "^1.2.3",
+    "lodash.get": "^4.4.2",
     "next": "^12.3.1",
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.29.0",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bricks": "^3.6.1",
     "react-bricks-ui": "^0.5.2",

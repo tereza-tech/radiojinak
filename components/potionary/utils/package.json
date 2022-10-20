@@ -1,0 +1,10 @@
+{
+  "name": "@potion/util",
+  "version": "1.0.0-next.26",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index",
+  "peerDependencies": {
+    "react": "~0.14.8 || ^15.0.0 || ^16.0.0",
+    "react-dom": "~0.14.8 || ^15.0.0 || ^16.0.0"
+  }
+}

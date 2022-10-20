@@ -12,10 +12,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _util = require('../../utils');
 var _d3Hierarchy = require('d3-hierarchy');
-
-var _util = require('@potion/util');
-
 var _Layout2 = require('./Layout');
 
 var _Layout3 = _interopRequireDefault(_Layout2);
